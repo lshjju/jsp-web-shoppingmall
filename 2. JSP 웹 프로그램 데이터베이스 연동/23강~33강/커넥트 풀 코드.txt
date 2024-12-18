@@ -1,0 +1,4 @@
+   <Context docBase="TEST1" path="/TEST1" reloadable="true" source="org.eclipse.jst.jee.server:TEST1">
+      	<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" loginTimeout="10" maxWait="50000" name="jdbc/pool" password="root" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/BOARD" username="root"/>
+      </Context>
+      <Context docBase="asdf" path="/asdf" reloadable="true" source="org.eclipse.jst.jee.server:asdf"/></Host>
