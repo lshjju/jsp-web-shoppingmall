@@ -1,0 +1,71 @@
+insert into rentcar values(1 , '아반테1' , 1 , 2000 , 4 , '현대' , '1.jpg' , '아반테1 자동차 입니다 .');
+insert into rentcar values(2 , '아반테2' , 3 , 2001 , 2 , '현대' , '2.jpg' , '아반테2 자동차 입니다 .');
+insert into rentcar values(3 , '아반테3' , 2 , 2002 , 3 , '현대' , '3.jpg' , '아반테3 자동차 입니다 .');
+insert into rentcar values(4 , '아반테4' , 1 , 2003 , 4 , '현대' , '4.jpg' , '아반테4 자동차 입니다 .');
+insert into rentcar values(5 , '아반테5' , 3 , 2002 , 3 , '현대' , '5.jpg' , '아반테5 자동차 입니다 .');
+
+insert into rentcar values(6 , '무쏘1' , 1,  2010 , 3 , '쌍용' , '6.jpg' , '무쏘1 자동차 입니다 .');
+insert into rentcar values(7 , '무쏘2' , 3 , 2009 , 2 , '쌍용' , '7.jpg' , '무쏘2 자동차 입니다 .');
+insert into rentcar values(8 , '무쏘3' , 2 , 2001 , 4 , '쌍용' , '8.jpg' , '무쏘3 자동차 입니다 .');
+insert into rentcar values(9 , '무쏘4' , 2 , 2002 , 4 , '쌍용' , '9.jpg' , '무쏘4 자동차 입니다 .');
+
+insert into rentcar values(10 , 'sm5_1' , 1 , 2001, 4 , '삼성' , '10.jpg' ,  'sm5_1 자동차 입니다 .');
+insert into rentcar values(11 , 'sm5_2' , 3 , 2003 , 4 , '삼성' , '11.jpg' , 'sm5_2 자동차 입니다 .');
+insert into rentcar values(12 , 'sm5_3' , 2 , 2005 , 4 , '삼성' , '12.jpg' , 'sm5_3 자동차 입니다 .');
+insert into rentcar values(13 , 'sm5_4' , 2 , 2006 , 4 , '삼성' , '13.jpg' , 'sm5_4 자동차 입니다 .');
+insert into rentcar values(14 , 'sm5_5' , 1 , 2001 , 4 , '삼성' , '14.jpg' , 'sm5_5 자동차 입니다 .');
+
+insert into rentcar values(15,  '카마로1' , 3 , 2001 , 4 , 'GM' , '15.jpg' , '카마로1 자동차 입니다 .');
+insert into rentcar values(16 , '카마로2' , 1 , 2003 , 4 , 'GM' , '16.jpg' , '카마로2 자동차 입니다 .');
+insert into rentcar values(17,  '카마로3' , 2 , 2005 , 4 , 'GM' , '17.jpg' , '카마로3 자동차 입니다 .');
+insert into rentcar values(18,  '카마로4' , 2 , 2001 , 4 , 'GM' , '18.jpg' , '카마로4 자동차 입니다 .');
+insert into rentcar values(19,  '카마로5' , 3 , 2002 , 4 , 'GM' , '19.jpg' , '카마로5 자동차 입니다 .');
+insert into rentcar values(20,  '카마로6' , 1 , 2005 , 4 , 'GM' , '20.jpg' , '카마로6 자동차 입니다 .');
+insert into rentcar values(21,  '카마로7' , 3 , 2006 , 4 , 'GM' , '21.jpg' , '카마로7 자동차 입니다 .');
+insert into rentcar values(22,  '카마로8' , 2 , 2008 , 4 , 'GM' , '22.jpg' , '카마로8 자동차 입니다 .');
+
+insert into rentcar values(23, '쏘랜토1' , 2 , 2001 , 4 , '기아' , '23.jpg' , '쏘랜토1 자동차 입니다 .');
+insert into rentcar values(24, '쏘랜토2' , 3 , 2003 , 4 , '기아' , '24.jpg' , '쏘랜토2 자동차 입니다 .');
+insert into rentcar values(25, '쏘랜토3' , 1 , 2002 , 4 , '기아' , '25.jpg' , '쏘랜토3 자동차 입니다 .');
+insert into rentcar values(26, '쏘랜토4' , 3 , 2005 , 4 , '기아' , '26.jpg' , '쏘랜토4 자동차 입니다 .');
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
