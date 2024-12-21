@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>ResponseRedirect.jsp ÆäÀÌÁö ÀÔ´Ï´Ù</h2>
+	<h2>ResponseRedirect.jsp í˜ì´ì§€ì…ë‹ˆë‹¤</h2>
 	<% 
 		request.setCharacterEncoding("EUC-KR");
 		
@@ -15,7 +15,7 @@
 		String phone = request.getParameter("phone");
 	%>
 	
-	<h3>¾ÆÀÌµğ´Â : <%=id %></h3>
+	<h3>ì•„ì´ë”” : <%=id %></h3>
 	<h3>phone : <%=phone %></h3>
 	
 </body>
