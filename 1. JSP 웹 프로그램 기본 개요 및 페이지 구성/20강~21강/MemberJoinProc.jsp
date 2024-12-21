@@ -7,21 +7,21 @@
 </head>
 <body>
 	<center>
-		<h2>È¸¿ø Á¤º¸ º¸±â</h2>
+		<h2>íšŒì› ì •ë³´ ë³´ê¸°</h2>
 		<% 
 			request.setCharacterEncoding("EUC-KR");	
 		%>
 		
-		<!-- request·Î ³Ñ¾î¿Â µ¥ÀÌÅÍ¸¦ ÀÚ¹Ù ºóÁî¶û ¸ÊÇÎ ½ÃÄÑÁÖ´Â useBean-->
-		<jsp:useBean id="mbean" class="bean.MemberBean"><!-- °´Ã¼ »ý¼º MemberBeab mbean = new MemberBean()-->
-		<!-- jsp ³»¿ëÀ» ÀÚ¹Ùºó Å¬·¡½º(MemberBeanÀÇ¹Ì)¿¡ µ¥ÀÌÅÍ¸¦ ¸ÊÇÎ(³Ö¾îÁÜ) -->
+		<!-- requestë¡œ ë„˜ì–´ì˜¨ ë°ì´í„°ë¥¼ ìžë°” ë¹ˆì¦ˆëž‘ ë§µí•‘ ì‹œì¼œì£¼ëŠ” useBean-->
+		<jsp:useBean id="mbean" class="bean.MemberBean"><!-- ê°ì²´ ìƒì„± MemberBeab mbean = new MemberBean()-->
+		<!-- jsp ë‚´ìš©ì„ ìžë°”ë¹ˆ í´ëž˜ìŠ¤(MemberBeanì˜ë¯¸)ì— ë°ì´í„°ë¥¼ ë§µí•‘(ë„£ì–´ì¤Œ) -->
 			<jsp:setProperty  name="mbean" property="*" />
 		</jsp:useBean>
 		
-		<h2>´ç½ÅÀÇ ¾ÆÀÌµð´Â <jsp:getProperty property = "id" name="mbean" /></h2>
-		<h2>´ç½ÅÀÇ ÆÐ½º<jsp:getProperty property = "pass1" name="mbean" /></h2>
-		<h2>´ç½ÅÀÇ ÀÌ¸ÞÀÏ <jsp:getProperty property = "email" name="mbean" /></h2>
-		<h2>´ç½ÅÀÇ ÀÌ¸ÞÀÏ <%=mbean.getTel()%></h2>			
+		<h2>ë‹¹ì‹ ì˜ ì•„ì´ë””ëŠ” <jsp:getProperty property = "id" name="mbean" /></h2>
+		<h2>ë‹¹ì‹ ì˜ íŒ¨ìŠ¤<jsp:getProperty property = "pass1" name="mbean" /></h2>
+		<h2>ë‹¹ì‹ ì˜ ì´ë©”ì¼ <jsp:getProperty property = "email" name="mbean" /></h2>
+		<h2>ë‹¹ì‹ ì˜ ì „í™”ë²ˆí˜¸ <%=mbean.getTel()%></h2>			
 	</center>
 	
 </body>
