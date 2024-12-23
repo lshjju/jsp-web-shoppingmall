@@ -37,8 +37,7 @@
 		response.sendRedirect("MemberList.jsp");
 	%>
 
-<!---<h2> 당신의 아이디 = <%=mbean.getId() %></h2>--->
-<!---<h2> 당신의 취미는 = <%=mbean.getHobby() %></h2>--->
+
 	
 </body>
 </html>
