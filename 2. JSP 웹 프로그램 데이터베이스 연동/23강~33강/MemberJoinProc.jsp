@@ -36,6 +36,9 @@
 		//회원 가입이 되었다면 회원 정보를 보여주는 페이지로 이동시킴 
 		response.sendRedirect("MemberList.jsp");
 	%>
+
+<!---<h2> 당신의 아이디 = <%=mbean.getId() %></h2>--->
+<!---<h2> 당신의 취미는 = <%=mbean.getHobby() %></h2>--->
 	
 </body>
 </html>
