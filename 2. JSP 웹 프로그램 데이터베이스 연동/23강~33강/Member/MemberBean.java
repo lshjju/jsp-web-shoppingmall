@@ -1,6 +1,4 @@
-package member;
-
-// package Member;
+package Member;
 
 public class MemberBean {
 	private String id;
