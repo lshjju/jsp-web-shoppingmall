@@ -1,4 +1,4 @@
-package Member;
+package model;
 
 public class MemberBean {
 	private String id;
