@@ -64,7 +64,7 @@
 		pstmt.executeUpdate();//insert,update,delete 시 사용하는 메소드 
 
 		//5.자원 반납 
-		conn.close();
+		con.close();
 
 	} catch (Exception e) {
 		e.printStackTrace();
@@ -130,7 +130,7 @@ mysql ver
 	   		pstmt.executeUpdate();//insert,update,delete 시 사용하는 메소드 
 	   		
 	   		//5.자원 반납 
-	   		conn.close();
+	   		con.close();
 	   		
 	   		
 	    }catch(Exception e){
@@ -140,3 +140,9 @@ mysql ver
 	
 	%>
     	 ~~ 오라클 접속 완료
+
+
+
+
+
+
