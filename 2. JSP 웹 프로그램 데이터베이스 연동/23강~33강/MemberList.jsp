@@ -1,3 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="model.MemberDAO"%>
+<%@ page import="model.MemberBean"%>
+<%@ page import="java.util.Vector"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 1. ë°ì´í„° ë² ì´ìŠ¤ì—ì„œ ëª¨ë“  íšŒì›ì˜ ì •ë³´ë¥¼ ê°€ì ¸ì˜´  2.table íƒœí¬ë¥¼ ì´ìš©í•˜ì—¬ í™”ë©´ì— íšŒì›ë“¤ì˜ ì •ë³´ë¥¼ ì¶œë ¥ -->
+	<%
+	MemberDAO mdao = new MemberDAO();
+
+	//íšŒì›ë“¤ì˜ ì •ë³´ê°€ ì–¼ë§ˆë‚˜ ì €ì¥ ë˜ì–´ìˆëŠ”ì§€ ëª¨ë¥´ê¸°ì— ê°€ë³€ê¸¸ì´ì¸ Vectorë¥¼ ì´ìš©í•˜ì—¬ ë°ì´í„°ë¥¼ ì €ì¥í•´ì¤Œ
+	//í´ë¦¬ ëª¨í”¼ì¦˜ ë‹¤í˜•ì„± íŠ¸ë¦¬ êµ¬ì¡° í•˜ìœ„êµ¬ì¡° ë¶€ëª¨ ìì‹ ê´€ê³„ 
+	Vector<MemberBean> vec = mdao.allSelectMember();
+	%>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="Member.MemberBeanDAO"%>
 <%@ page import="Member.MemberBean"%>
@@ -9,29 +56,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- 1. µ¥ÀÌÅÍ º£ÀÌ½º¿¡¼­ ¸ğµç È¸¿øÀÇ Á¤º¸¸¦ °¡Á®¿È  2.table ÅÂÅ©¸¦ ÀÌ¿ëÇÏ¿© È­¸é¿¡ È¸¿øµéÀÇ Á¤º¸¸¦ Ãâ·Â -->	
+	<!-- 1. ë°ì´í„° ë² ì´ìŠ¤ì—ì„œ ëª¨ë“  íšŒì›ì˜ ì •ë³´ë¥¼ ê°€ì ¸ì˜´  2.table íƒœí¬ë¥¼ ì´ìš©í•˜ì—¬ í™”ë©´ì— íšŒì›ë“¤ì˜ ì •ë³´ë¥¼ ì¶œë ¥ -->	
 	<% 
 		MemberBeanDAO mbao = new MemberBeanDAO();
 		mbao.allSelectMember();
-		//È¸¿øµéÀÇ Á¤º¸°¡ ¾ó¸¶³ª ÀúÀå µÇ¾îÀÖ´ÂÁö ¸ğ¸£±â¿¡ °¡º¯±æÀÌÀÎ Vector¸¦ ÀÌ¿ëÇÏ¿© µ¥ÀÌÅÍ¸¦ ÀúÀåÇØÁÜ
-		//Æú¸® ¸ğÇÇÁò ´ÙÇü¼º Æ®¸® ±¸Á¶ ÇÏÀ§±¸Á¶ ºÎ¸ğ ÀÚ½Ä °ü°è 
+		//íšŒì›ë“¤ì˜ ì •ë³´ê°€ ì–¼ë§ˆë‚˜ ì €ì¥ ë˜ì–´ìˆëŠ”ì§€ ëª¨ë¥´ê¸°ì— ê°€ë³€ê¸¸ì´ì¸ Vectorë¥¼ ì´ìš©í•˜ì—¬ ë°ì´í„°ë¥¼ ì €ì¥í•´ì¤Œ
+		//í´ë¦¬ ëª¨í”¼ì¦˜ ë‹¤í˜•ì„± íŠ¸ë¦¬ êµ¬ì¡° í•˜ìœ„êµ¬ì¡° ë¶€ëª¨ ìì‹ ê´€ê³„ 
 	    Vector<MemberBean> vec = mbao.allSelectMember(); 
 	%>
 
 
 	<center>
-	<h2> ¸ğµç È¸¿ø º¸±â </h2>
+	<h2> ëª¨ë“  íšŒì› ë³´ê¸° </h2>
 	
 		<table width ="800" border="1">
 			<tr height="50">
-				<td align = "center" width = "150">¾ÆÀÌµğ </td>
-				<td align = "center" width = "250">ÀÌ¸ŞÀÏ </td>
-				<td align = "center" width = "200">ÀüÈ­¹øÈ£ </td>
-				<td align = "center" width = "200">Ãë¹Ì </td>
+				<td align = "center" width = "150">ì•„ì´ë”” </td>
+				<td align = "center" width = "250">ì´ë©”ì¼ </td>
+				<td align = "center" width = "200">ì „í™”ë²ˆí˜¸ </td>
+				<td align = "center" width = "200">ì·¨ë¯¸ </td>
 			</tr>
 			<% 
 				for(int i = 0 ; i<vec.size();i++){
-				MemberBean bean = vec.get(i);//¹éÅÍ¿¡ ´ã±ä ºó Å¬·¡½º¸¦ ÇÏ³ª¾¿ ÃßÃâ
+				MemberBean bean = vec.get(i);//ë°±í„°ì— ë‹´ê¸´ ë¹ˆ í´ë˜ìŠ¤ë¥¼ í•˜ë‚˜ì”© ì¶”ì¶œ
 			%>
 			<tr height="50">
 				<td align = "center" width = "150">
