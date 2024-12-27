@@ -10,30 +10,30 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-//¿À¶óÅ¬ µ¥ÀÌÅÍ º£ÀÌ½º¿¡ ¿¬°áÇÏ°í select, insert , update , delete ÀÛ¾÷À» ½ÇÇàÇØ ÁÖ´Â Å¬·¡½º ÀÔ´Ï´Ù.
+//ì˜¤ë¼í´ ë°ì´í„° ë² ì´ìŠ¤ì— ì—°ê²°í•˜ê³  select, insert , update , delete ì‘ì—…ì„ ì‹¤í–‰í•´ ì£¼ëŠ” í´ë˜ìŠ¤ ì…ë‹ˆë‹¤.
 public class MemberBeanDAO{
-	//¿À¶óÅ¬¿¡ Á¢¼ÓÇÏ´Â ¼Ò½º¸¦ ÀÛ¼º
-    String dbID = "root";//Á¢¼Ó ¾ÆÀÌµğ
+	//ì˜¤ë¼í´ì— ì ‘ì†í•˜ëŠ” ì†ŒìŠ¤ë¥¼ ì‘ì„±
+    String dbID = "root";//ì ‘ì† ì•„ì´ë””
     String dbPassword = "root";
     String dbURL = "jdbc:mysql://localhost:3306/MEMBER";
     
-    ResultSet rs; //µ¥ÀÌÅÍ º£ÀÌ½ºÀÇ Å×ÀÌºíÀÇ °á°ú¸¦ ¸®ÅÏ ¹Ş¾Æ ÀÚ¹Ù¿¡ ÀúÀåÇØ ÁÖ´Â °´Ã¼
-    Connection conn;//µ¥ÀÌÅÍº£ÀÌ½º¿¡ Á¢±ÙÇÒ¼ö ÀÖµµ·Ï ¼³Á¤ 
-    PreparedStatement pstmt;//µ¥ÀÌÅÍ º£ÀÌ½º¿¡¼­ Äõ¸®¸¦ ½ÇÇà½ÃÄÑÁÖ´Â °´Ã¼ 
+    ResultSet rs; //ë°ì´í„° ë² ì´ìŠ¤ì˜ í…Œì´ë¸”ì˜ ê²°ê³¼ë¥¼ ë¦¬í„´ ë°›ì•„ ìë°”ì— ì €ì¥í•´ ì£¼ëŠ” ê°ì²´
+    Connection conn;//ë°ì´í„°ë² ì´ìŠ¤ì— ì ‘ê·¼í• ìˆ˜ ìˆë„ë¡ ì„¤ì • 
+    PreparedStatement pstmt;//ë°ì´í„° ë² ì´ìŠ¤ì—ì„œ ì¿¼ë¦¬ë¥¼ ì‹¤í–‰ì‹œì¼œì£¼ëŠ” ê°ì²´ 
 	
    
-   //µ¥ÀÌÅÍ º£ÀÌ½º¿¡ Á¢±ÙÇÒ¼ö ÀÖµµ·Ï µµ¿ÍÁÖ´Â ¸Ş¼Òµå
+   //ë°ì´í„° ë² ì´ìŠ¤ì— ì ‘ê·¼í• ìˆ˜ ìˆë„ë¡ ë„ì™€ì£¼ëŠ” ë©”ì†Œë“œ
 	public void getcon(){
-		//Ä¿³Ø¼Ç Ç®À» ÀÌ¿äÇÏ¿© µ¥ÀÌÅÍ º£ÀÌ½º¿¡ Á¢±Ù 
+		//ì»¤ë„¥ì…˜ í’€ì„ ì´ìš”í•˜ì—¬ ë°ì´í„° ë² ì´ìŠ¤ì— ì ‘ê·¼ 
 		
 		 try{
-		   	//¿ÜºÎ¿¡¼­ µ¥ÀÌÅÍ¸¦ ÀĞ¾î µå·Á¾ß ÇÏ±â¿¡ 
+		   	//ì™¸ë¶€ì—ì„œ ë°ì´í„°ë¥¼ ì½ì–´ ë“œë ¤ì•¼ í•˜ê¸°ì— 
 			 Context initctx = new InitialContext();
-			 //ÅèÄ¹ ¼­¹ö¿¡ Á¤º¸¸¦ ´ã¾Æ ³õÀº °÷ À¸·Î ÀÌµ¿ 
+			 //í†°ìº£ ì„œë²„ì— ì •ë³´ë¥¼ ë‹´ì•„ ë†“ì€ ê³³ ìœ¼ë¡œ ì´ë™ 
 			 Context envctx = (Context)initctx.lookup("java:comp/env");
-			 //µ¥ÀÌÅÍ º£ÀÌ½º °´Ã¼¸¦ ¼±¾ğ 
+			 //ë°ì´í„° ë² ì´ìŠ¤ ê°ì²´ë¥¼ ì„ ì–¸ 
 			 DataSource ds =  (DataSource)envctx.lookup("jdbc/pool");
-			 //µ¥ÀÌÅÍ ¼Ò½º¸¦ ±âÁØÀ¸·Î Ä¿³Ø¼ÇÀ» ¿¬°áÇØ ÁÖ½Ã¿À
+			 //ë°ì´í„° ì†ŒìŠ¤ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì»¤ë„¥ì…˜ì„ ì—°ê²°í•´ ì£¼ì‹œì˜¤
 			 conn =ds.getConnection();
 		   		
 		 }catch(Exception e){
@@ -41,9 +41,9 @@ public class MemberBeanDAO{
 		 }
 		/*
 		 try{
-		   		//1.ÇØ´ç µ¥ÀÌÅÍ º£ÀÌ½º¸¦ »ç¿ëÇÑ´Ù°í ¼±¾ğ(Å¬·¡½º¸¦ µî·Ï = ¿À¶óÅ¬À» »ç¿ë) 	
+		   		//1.í•´ë‹¹ ë°ì´í„° ë² ì´ìŠ¤ë¥¼ ì‚¬ìš©í•œë‹¤ê³  ì„ ì–¸(í´ë˜ìŠ¤ë¥¼ ë“±ë¡ = ì˜¤ë¼í´ì„ ì‚¬ìš©) 	
 			    Class.forName("com.mysql.jdbc.Driver");
-		   		//2.ÇØ´ç µ¥ÀÌÅÍ º£ÀÌ½º¿¡ Á¢¼Ó
+		   		//2.í•´ë‹¹ ë°ì´í„° ë² ì´ìŠ¤ì— ì ‘ì†
 			    conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		   		
 		   		
@@ -53,14 +53,14 @@ public class MemberBeanDAO{
 		   	*/
 	}
 	
-	//µ¥ÀÌÅÍ º£ÀÌ½º¿¡ ÇÑ»ç¶÷ÀÇ È¸¿ø Á¤º¸¸¦ ÀúÀåÇØÁÖ´Â ¸Å¼Òµå
+	//ë°ì´í„° ë² ì´ìŠ¤ì— í•œì‚¬ëŒì˜ íšŒì› ì •ë³´ë¥¼ ì €ì¥í•´ì£¼ëŠ” ë§¤ì†Œë“œ
 	public void insertMember(MemberBean mbean){
 		try {
 		getcon();
 		String SQL = "INSERT INTO MEMBER VALUES(?,?,?,?,?,?,?,?)";
-		//Äõ¸®¸¦ »ç¿ëÇÏµµ·Ï ¼³Á¤ 
+		//ì¿¼ë¦¬ë¥¼ ì‚¬ìš©í•˜ë„ë¡ ì„¤ì • 
 			pstmt = conn.prepareStatement(SQL);
-			//?¿¡ ¸Â°Ô µ¥ÀÌÅÍ¸¦ ¸ÊÇÎ
+			//?ì— ë§ê²Œ ë°ì´í„°ë¥¼ ë§µí•‘
 			pstmt.setString(1,mbean.getId());
 			pstmt.setString(2,mbean.getPass1());
 			pstmt.setString(3,mbean.getEmail());
@@ -69,9 +69,9 @@ public class MemberBeanDAO{
 			pstmt.setString(6,mbean.getJob());
 			pstmt.setString(7,mbean.getAge());
 			pstmt.setString(8,mbean.getInfo());
-			//4.¿À¶óÅ¬¿¡¼­ Äû¸®¸¦ ½ÇÇà ÇÏ½Ã¿À 
-			pstmt.executeUpdate();//insert,update,delete ½Ã »ç¿ëÇÏ´Â ¸Ş¼Òµå 
-			//5.ÀÚ¿ø ¹İ³³ 
+			//4.ì˜¤ë¼í´ì—ì„œ í€´ë¦¬ë¥¼ ì‹¤í–‰ í•˜ì‹œì˜¤ 
+			pstmt.executeUpdate();//insert,update,delete ì‹œ ì‚¬ìš©í•˜ëŠ” ë©”ì†Œë“œ 
+			//5.ìì› ë°˜ë‚© 
 			conn.close();
 		}catch(Exception e) {
 			e.printStackTrace();	
@@ -79,29 +79,29 @@ public class MemberBeanDAO{
 	}
 	
 	
-	//¸ğµç È¸¿øÀÇ Á¤º¸¸¦ ¸®ÅÏÇØ ÁÖ´Â ¸Å¼Òµå È£Ãâ 
+	//ëª¨ë“  íšŒì›ì˜ ì •ë³´ë¥¼ ë¦¬í„´í•´ ì£¼ëŠ” ë§¤ì†Œë“œ í˜¸ì¶œ 
 	public Vector<MemberBean> allSelectMember(){
-		//°¡º¯±æÀÌ·Î µ¥ÀÌÅÍ¸¦ ÀúÀå
+		//ê°€ë³€ê¸¸ì´ë¡œ ë°ì´í„°ë¥¼ ì €ì¥
 		Vector<MemberBean> v = new Vector<>();
 		
-		//¹«Á¶°Ç µ¥ÀÌÅÍ º£ÀÌ½º´Â ¿¹¿Ü Ã³¸®¸¦ ¹İµå½Ã ÇØ¾ß ÇÕ´Ï´Ù.
+		//ë¬´ì¡°ê±´ ë°ì´í„° ë² ì´ìŠ¤ëŠ” ì˜ˆì™¸ ì²˜ë¦¬ë¥¼ ë°˜ë“œì‹œ í•´ì•¼ í•©ë‹ˆë‹¤.
 		 try{
-			 //Ä¿³Ø¼Ç ¿¬°á 
+			 //ì»¤ë„¥ì…˜ ì—°ê²° 
 			 getcon();
 			 
-			 //Äõ¸® ÁØºñ 
+			 //ì¿¼ë¦¬ ì¤€ë¹„ 
 			 String SQL = "SELECT * FROM MEMBER";
 			 
-			 //Äõ¸®¸¦ ½ÇÇà ½ÃÄÑÁÖ´Â °´Ã¼ ¼±¾ğ 
+			 //ì¿¼ë¦¬ë¥¼ ì‹¤í–‰ ì‹œì¼œì£¼ëŠ” ê°ì²´ ì„ ì–¸ 
 			 pstmt = conn.prepareStatement(SQL);
 			 
-			 //¸Ş¼Òµå ´Ù ¿Ü¿ì±â
-			 //Äõ¸®¸¦ ½ÇÇà ½ÃÅ² °á°ú¸¦ ¸®ÅÏÇØ¼­ ¹Ş¾ÆÁÜ(¿À¶óÅ¬ÀÇ Å×ÀÌºíÀÇ °Ë»öµÈ °á°ú¸¦ ÀÚ¹Ù °´Ã¼¿¡ ÀúÀå) 
+			 //ë©”ì†Œë“œ ë‹¤ ì™¸ìš°ê¸°
+			 //ì¿¼ë¦¬ë¥¼ ì‹¤í–‰ ì‹œí‚¨ ê²°ê³¼ë¥¼ ë¦¬í„´í•´ì„œ ë°›ì•„ì¤Œ(ì˜¤ë¼í´ì˜ í…Œì´ë¸”ì˜ ê²€ìƒ‰ëœ ê²°ê³¼ë¥¼ ìë°” ê°ì²´ì— ì €ì¥) 
 			 rs = pstmt.executeQuery();
 			 
-			 //¹İº¹¹®À» »ç¿ëÇØ¼­ rs¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ ÃßÃâÇØ ³õ¾Æ¾ßÇÕ´Ï´Ù
-			 while(rs.next()){//ÀúÀåµÈ µ¥ÀÌÅÍ ¸¸Å­±îÁö ¹İº¹¹®À» µ¹¸®°Ú´Ù´Â ¶æ ÀÔ´Ï´Ù. 
-				 MemberBean bean = new MemberBean(); //ÄÃ·³À¸·Î ³ª´µ¾îÁø µ¥ÀÌÅÍ¸¦ ºó Å¬·¡½º¿¡ ÀúÀå 
+			 //ë°˜ë³µë¬¸ì„ ì‚¬ìš©í•´ì„œ rsì— ì €ì¥ëœ ë°ì´í„°ë¥¼ ì¶”ì¶œí•´ ë†“ì•„ì•¼í•©ë‹ˆë‹¤
+			 while(rs.next()){//ì €ì¥ëœ ë°ì´í„° ë§Œí¼ê¹Œì§€ ë°˜ë³µë¬¸ì„ ëŒë¦¬ê² ë‹¤ëŠ” ëœ» ì…ë‹ˆë‹¤. 
+				 MemberBean bean = new MemberBean(); //ì»¬ëŸ¼ìœ¼ë¡œ ë‚˜ë‰˜ì–´ì§„ ë°ì´í„°ë¥¼ ë¹ˆ í´ë˜ìŠ¤ì— ì €ì¥ 
 				 bean.setId(rs.getString(1));
 				 bean.setPass1(rs.getString(2));
 				 bean.setEmail(rs.getString(3));
@@ -110,38 +110,38 @@ public class MemberBeanDAO{
 				 bean.setJob(rs.getString(6));
 				 bean.setAge(rs.getString(7));
 				 bean.setInfo(rs.getString(8));	 
-				 //ÆĞÅ°Â¡µÈ memberbeanÅ¬·¡½º¸¦ ¹éÅÍ¿¡ ÀúÀå 
-				 v.add(bean);//0¹øÁö ºÎÅÍ ¼ø¼­´ë·Î µ¥ÀÌÅÍ°¡ ÀúÀå
+				 //íŒ¨í‚¤ì§•ëœ memberbeaní´ë˜ìŠ¤ë¥¼ ë°±í„°ì— ì €ì¥ 
+				 v.add(bean);//0ë²ˆì§€ ë¶€í„° ìˆœì„œëŒ€ë¡œ ë°ì´í„°ê°€ ì €ì¥
 			 }
-			 //ÀÚ¿ø ¹İ³³
+			 //ìì› ë°˜ë‚©
 			 conn.close();
 			 
 		    }catch(Exception e){
 		    	e.printStackTrace();
 		   	}
 		 
-		 	//´Ù ÀúÀåµÈ ¹éÅÍ¸¦ ¸®ÅÏ
+		 	//ë‹¤ ì €ì¥ëœ ë°±í„°ë¥¼ ë¦¬í„´
 		 	return v;	
 	}
 	
 	
 	public MemberBean oneSelectMember(String id){
-		//ÇÑ»ç¶÷¿¡ ´ëÇÑ Á¤º¸¸¸ ¸®ÅÏÇÏ±â¿¡ ºóÅ¬·¡½º °´Ã¼ »ı¼º
+		//í•œì‚¬ëŒì— ëŒ€í•œ ì •ë³´ë§Œ ë¦¬í„´í•˜ê¸°ì— ë¹ˆí´ë˜ìŠ¤ ê°ì²´ ìƒì„±
 		MemberBean bean = new MemberBean();
-		//¹«Á¶°Ç µ¥ÀÌÅÍ º£ÀÌ½º´Â ¿¹¿Ü Ã³¸®¸¦ ¹İµå½Ã ÇØ¾ß ÇÕ´Ï´Ù.
+		//ë¬´ì¡°ê±´ ë°ì´í„° ë² ì´ìŠ¤ëŠ” ì˜ˆì™¸ ì²˜ë¦¬ë¥¼ ë°˜ë“œì‹œ í•´ì•¼ í•©ë‹ˆë‹¤.
 		 try{
-			 //Ä¿³Ø¼Ç ¿¬°á 
+			 //ì»¤ë„¥ì…˜ ì—°ê²° 
 			 getcon();
 			 
-			 //Äõ¸® ÁØºñ 
+			 //ì¿¼ë¦¬ ì¤€ë¹„ 
 			 String SQL = "SELECT *FROM MEMBER WHERE id= ?";
-			 //Äõ¸®¸¦ ½ÇÇà ½ÃÄÑÁÖ´Â °´Ã¼ ¼±¾ğ 
+			 //ì¿¼ë¦¬ë¥¼ ì‹¤í–‰ ì‹œì¼œì£¼ëŠ” ê°ì²´ ì„ ì–¸ 
 			 pstmt = conn.prepareStatement(SQL);		 
-			 //?ÀÇ °ªÀ» ¸ÊÇÎ 
+			 //?ì˜ ê°’ì„ ë§µí•‘ 
 			 pstmt.setString(1,id);
-			 //Äõ¸® ½ÇÇà 
+			 //ì¿¼ë¦¬ ì‹¤í–‰ 
 			 rs = pstmt.executeQuery();
-			 if(rs.next()){//·¹ÄÚµå°¡ ÀÖ´Ù¸é 
+			 if(rs.next()){//ë ˆì½”ë“œê°€ ìˆë‹¤ë©´ 
 				 bean.setId(rs.getString(1));
 				 bean.setPass1(rs.getString(2));
 				 bean.setEmail(rs.getString(3));
@@ -152,80 +152,80 @@ public class MemberBeanDAO{
 				 bean.setInfo(rs.getString(8));	 		 
 			 }
 			 
-			 //ÀÚ¿ø ¹İ³³
+			 //ìì› ë°˜ë‚©
 			 conn.close();
 			 
 		    }catch(Exception e){
 		    	e.printStackTrace();
 		   	}	
-		 //¸®ÅÏ 
+		 //ë¦¬í„´ 
 		return bean;	
 	}
 	
-	//ÇÑ È¸¿øÀÇ ÆĞ½º¿öµå °ªÀ» ¸®ÅÏÇÏ´Â ¸Ş¼Òµå ÀÛ¼º
+	//í•œ íšŒì›ì˜ íŒ¨ìŠ¤ì›Œë“œ ê°’ì„ ë¦¬í„´í•˜ëŠ” ë©”ì†Œë“œ ì‘ì„±
 	public String getPass1(String id){
-		//½ºÆ®¸µÀ¸·Î ¸®ÅÏÀ» ÇØ¾ßÇÏ±â¿¡ ½ºÆ®¸µ º¯¼ö ¼±¾ğ
+		//ìŠ¤íŠ¸ë§ìœ¼ë¡œ ë¦¬í„´ì„ í•´ì•¼í•˜ê¸°ì— ìŠ¤íŠ¸ë§ ë³€ìˆ˜ ì„ ì–¸
 		String pass="";
 		try {
-		 //Ä¿³Ø¼Ç ¿¬°á 
+		 //ì»¤ë„¥ì…˜ ì—°ê²° 
 		 getcon();
-		 //Äõ¸® ÁØºñ 
+		 //ì¿¼ë¦¬ ì¤€ë¹„ 
 		 String SQL = "SELECT pass1 FROM MEMBER WHERE id= ?";
-		 //Äõ¸®¸¦ ½ÇÇà ½ÃÄÑÁÖ´Â °´Ã¼ ¼±¾ğ 
+		 //ì¿¼ë¦¬ë¥¼ ì‹¤í–‰ ì‹œì¼œì£¼ëŠ” ê°ì²´ ì„ ì–¸ 
 		 pstmt = conn.prepareStatement(SQL);		 
-		 //?ÀÇ °ªÀ» ¸ÊÇÎ 
+		 //?ì˜ ê°’ì„ ë§µí•‘ 
 		 pstmt.setString(1,id);
-		 //Äõ¸® ½ÇÇà 
+		 //ì¿¼ë¦¬ ì‹¤í–‰ 
 		 rs = pstmt.executeQuery();
 		 
 		 if(rs.next()){
 			 pass=rs.getNString(1);	 
 		 }
 		 
-		 //ÀÚ¿ø ¹İ³³
+		 //ìì› ë°˜ë‚©
 		 conn.close();
 	    }catch(Exception e){
 	    	e.printStackTrace();
 	   	}	
-		//¸®ÅÏ 
+		//ë¦¬í„´ 
 		return pass;	
 	}
 	
-	//ÇÑ È¸¿øÀÇ Á¤º¸¸¦ ¼öÁ¤ÇÏ´Â ¸Å¼Òµå 
+	//í•œ íšŒì›ì˜ ì •ë³´ë¥¼ ìˆ˜ì •í•˜ëŠ” ë§¤ì†Œë“œ 
 	public void updateMember(MemberBean bean){
 		getcon();
 		try {
-		 //Äõ¸® ÁØºñ 
+		 //ì¿¼ë¦¬ ì¤€ë¹„ 
 		 String SQL = "UPDATE MEMBER SET email=?,tel=? WHERE id=?";
-		 //Äõ¸®¸¦ ½ÇÇà ½ÃÄÑÁÖ´Â °´Ã¼ ¼±¾ğ 
+		 //ì¿¼ë¦¬ë¥¼ ì‹¤í–‰ ì‹œì¼œì£¼ëŠ” ê°ì²´ ì„ ì–¸ 
 		 pstmt = conn.prepareStatement(SQL);		 
-		 //?ÀÇ °ªÀ» ¸ÊÇÎ 
+		 //?ì˜ ê°’ì„ ë§µí•‘ 
 		 pstmt.setString(1,bean.getEmail());
 		 pstmt.setString(2,bean.getTel());
 		 pstmt.setString(3,bean.getId());
-		 //Äõ¸® ½ÇÇà 
+		 //ì¿¼ë¦¬ ì‹¤í–‰ 
 		 pstmt.executeUpdate();
-		 //ÀÚ¿ø ¹İ³³
+		 //ìì› ë°˜ë‚©
 		 conn.close();
 	    }catch(Exception e){
 	    	e.printStackTrace();
 	   	}	
 	}
 	
-	//ÇÑÈ¸¿øÀ» »èÁ¦ÇÏ´Â ¸Ş¼Òµå ÀÛ¼º 
+	//í•œíšŒì›ì„ ì‚­ì œí•˜ëŠ” ë©”ì†Œë“œ ì‘ì„± 
 	public void deleteMember(String id) {
 		getcon();
 
 		try {
-		 //Äõ¸® ÁØºñ 
+		 //ì¿¼ë¦¬ ì¤€ë¹„ 
 		 String SQL = "DELETE FROM MEMBER WHERE id=?";
-		 //Äõ¸®¸¦ ½ÇÇà ½ÃÄÑÁÖ´Â °´Ã¼ ¼±¾ğ 
+		 //ì¿¼ë¦¬ë¥¼ ì‹¤í–‰ ì‹œì¼œì£¼ëŠ” ê°ì²´ ì„ ì–¸ 
 		 pstmt = conn.prepareStatement(SQL);		 
-		 //?ÀÇ °ªÀ» ¸ÊÇÎ 
+		 //?ì˜ ê°’ì„ ë§µí•‘ 
 		 pstmt.setString(1,id);
-		 //Äõ¸® ½ÇÇà 
+		 //ì¿¼ë¦¬ ì‹¤í–‰ 
 		 pstmt.executeUpdate();
-		 //ÀÚ¿ø ¹İ³³
+		 //ìì› ë°˜ë‚©
 		 conn.close();
 	    }catch(Exception e){
 	    	e.printStackTrace();
