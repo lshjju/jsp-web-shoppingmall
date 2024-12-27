@@ -11,7 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 //오라클 데이터 베이스에 연결하고 select, insert , update , delete 작업을 실행해 주는 클래스 입니다.
-public class MemberBeanDAO{
+public class MemberDAO{
 	//오라클에 접속하는 소스를 작성
     String dbID = "root";//접속 아이디
     String dbPassword = "root";
