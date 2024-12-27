@@ -42,13 +42,13 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 
 		//2.해당 데이터 베이스에 접속
-		Connection conn = DriverManager.getConnection(url, id, pass);
+		Connection con = DriverManager.getConnection(url, id, pass);
 
 		//3. 접속후 쿼리 준비하여 쿼리를 실행하여 쿼리를 사용하도록 설정 
 		String SQL = "INSERT INTO MEMBERS VALUES(?,?,?,?,?,?,?,?)";
 
 		//쿼리를 사용하도록 설정 
-		PreparedStatement pstmt = conn.prepareStatement(SQL);//jsp에서 쿼리를 사용하도록 설정
+		PreparedStatement pstmt = con.prepareStatement(SQL);//jsp에서 쿼리를 사용하도록 설정
 
 		//?에 맞게 데이터를 맵핑
 		pstmt.setString(1, mbean.getId());
@@ -108,13 +108,13 @@ mysql ver
 		    Class.forName("com.mysql.jdbc.Driver");
 	   	
 	   		//2.해당 데이터 베이스에 접속
-	   		Connection conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+	   		Connection con = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		    
 	   		//3. 접속후 쿼리 준비하여 쿼리를 실행하여 쿼리를 사용하도록 설정 
 	   		 String SQL = "INSERT INTO MEMBER VALUES(?,?,?,?,?,?,?,?)";
 	   		
 	   		//쿼리를 사용하도록 설정 
-			PreparedStatement pstmt = conn.prepareStatement(SQL);//jsp에서 쿼리를 사용하도록 설정
+			PreparedStatement pstmt = con.prepareStatement(SQL);//jsp에서 쿼리를 사용하도록 설정
 			
 	   		//?에 맞게 데이터를 맵핑
 	   		pstmt.setString(1,mbean.getId());
