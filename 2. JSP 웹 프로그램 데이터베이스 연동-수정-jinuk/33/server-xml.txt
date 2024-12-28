@@ -1,5 +1,0 @@
-     <!-- <Context docBase="Database" path="/Database" reloadable="true" source="org.eclipse.jst.jee.server:Database"/> --> 
-      
-      <Context docBase="Database" path="/Database" reloadable="true" source="org.eclipse.jst.jee.server:Database">
-      <Resource name="jdbc/pool" auth="Container" type="javax.sql.DataSource" driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10" maxWait="5000" username="myid" password="1234" url="jdbc:oracle:thin:@localhost:1521:XE"/>
-      </Context>
